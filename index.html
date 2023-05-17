@@ -20,7 +20,12 @@
     </header>
     <section id="main_card">
         <h1 id="question">Welcome to the JavaScript Code Quiz!</h1>
-        <div id="answers">
+        <di>
+            <p>
+                its the game I made from scratch to display questions about JS
+            </p>
+        </di>
+        <div id="answers" style="display: none;">
             <div id="answers_left">
                 <a class="btn" data-id="1" id="1"></a>
                 <a class="btn" data-id="2" id="2"></a>
@@ -30,9 +35,13 @@
                 <a class="btn" data-id="4" id="4"></a>
             </div>
         </div>
-        <a id="question_response"></a>
-        <div id="hs_page">
-            <h3></h3>
+        <!--!displays response answer or times up-->
+        <a id="question_response" style="display: block"></a>
+        <!--!creates a high score page and hides the rest-->
+        <div id="hs_page" style="display: none;">
+            <input type="name" placeholder="initials"/>
+
+            <h3>Hello</h3>
         </div>
     </section>      
 

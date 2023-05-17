@@ -68,13 +68,15 @@ header {
     width: 100%;
 }
 
+.wrapper {
+    display: flex;
+}
 
 .btn {
-    width: 30%;
     border: 1px solid black;
     border-radius: 25px;
-    padding: 5px;
-    text-align: center;
+    padding: 5% 100%;
+    
     margin: 2px;
     background-color: aquamarine;
 }
