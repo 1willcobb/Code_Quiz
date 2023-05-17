@@ -14,21 +14,25 @@
                 <h3>View High Scores</h3>
             </a>
             <a id="timer">
-                <h3>Timer: 75 seconds</h3>
+                <h3>Time Left: <span id="timer_time"></span></h3>
             </a>
         </div>
     </header>
     <section id="main_card">
-        <h1 id="question"></h1>
-        <div id="answers"></div>
-            <a class="btn" data-id="1" id="1"></a>
-            <a class="btn" data-id="2" id="2"></a>
-            <a class="btn" data-id="3" id="3"></a>
-            <a class="btn" data-id="4" id="4"></a>
+        <h1 id="question">Welcome to the JavaScript Code Quiz!</h1>
+        <div id="answers">
+            <div id="answers_left">
+                <a class="btn" data-id="1" id="1"></a>
+                <a class="btn" data-id="2" id="2"></a>
+            </div>
+            <div id="answers_right">
+                <a class="btn" data-id="3" id="3"></a>
+                <a class="btn" data-id="4" id="4"></a>
+            </div>
         </div>
-        <a id="question_responses"></a>
+        <a id="question_response"></a>
         <div id="hs_page">
-            <h3>enter initials</h3>
+            <h3></h3>
         </div>
     </section>      
 

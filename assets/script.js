@@ -50,6 +50,21 @@ answer3.innerText = q1.answer_choices[2];
 let answer4 = document.getElementById("4");
 answer4.innerText = q1.answer_choices[3];
 
-q1_answers.addEventListener("click")
+
+let timer = document.querySelector("#timer_time");
+let start_time = 2;
+let question_response = document.querySelector("#question_response");
 
 
+//TODO click the start button a timer starts and given question 1
+let answer_choice = document.querySelector("#answers")
+this.addEventListener("load", function() {
+    setInterval(function(){
+        if (start_time > 0){
+            start_time --;
+            timer.innerText = start_time;
+        } else {
+            question_response.innerText = "TIMES UP";
+        }
+    }, 1000);
+});
