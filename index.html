@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./assets/style.css"/>
 </head>
 <body>
-    <header>
+    <header style="display: block">
         <div class="header_wrapper">
             <a id="high_score_link">
                 <h3>View High Scores</h3>
@@ -18,33 +18,36 @@
             </a>
         </div>
     </header>
-    <section id="main_card">
-        <h1 id="question">Welcome to the JavaScript Code Quiz!</h1>
-        <di>
-            <p>
-                its the game I made from scratch to display questions about JS
-            </p>
-        </di>
-        <div id="answers" style="display: none;">
-            <div id="answers_left">
-                <a class="btn" data-id="1" id="1"></a>
-                <a class="btn" data-id="2" id="2"></a>
-            </div>
-            <div id="answers_right">
-                <a class="btn" data-id="3" id="3"></a>
-                <a class="btn" data-id="4" id="4"></a>
-            </div>
+    <section id="main_card" style="display: block">
+        <h1 id="question"></h1>
+        <p id="p"></p>
+        <div id="answers" style="display: none">
+            <a class="btn" data-id="1" id="1"></a>
+            <a class="btn" data-id="2" id="2"></a>
+            <a class="btn" data-id="3" id="3"></a>
+            <a class="btn" data-id="4" id="4"></a>
         </div>
         <!--!displays response answer or times up-->
-        <a id="question_response" style="display: block"></a>
+        <a id="question_response" style="display: block">
+            <div class="options" id="star_buttons">
+                <a class="btn" id="start">Start Quiz</a>
+                <a class="btn reset">Reset Scores</a>
+            </div>
+        </a>
+    </section>
         <!--!creates a high score page and hides the rest-->
-        <div id="hs_page" style="display: none;">
-            <input type="name" placeholder="initials"/>
-
-            <h3>Hello</h3>
+    <section id="hs_page" style="display: none;">
+        <h1 id="hs_title">High Scores</h1>
+        <h3 id="final_score"></h3>
+        <ol id="hs_list">
+        </ol>
+        <input type="name" placeholder="initials"/>
+        <button class="btn" id="submit_initials">Submit</button>
+        <div class="options" id="hs_selectors">
+            <a class="btn" id="restart">Try Again</a>
+            <a class="btn reset">Reset scores</a>
         </div>
-    </section>      
-
+    </section>
     <script src="./assets/script.js"></script>
 </body>
 </html>
