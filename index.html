@@ -24,13 +24,14 @@
         <h1 id="question"></h1>
         <p id="p"></p>
         <div id="answers" style="display: none">
-            <a class="btn">1: <span data-id="1" id="1"></span></a>
-            <a class="btn">2: <span data-id="2" id="2"></span></a>
-            <a class="btn">3: <span data-id="3" id="3"></span></a>
-            <a class="btn">4: <span data-id="4" id="4"></span></a>
+            <a class="btn" id="1">1: <span id="1.1"></span></a>
+            <a class="btn" id="2">2: <span id="2.1"></span></a>
+            <a class="btn" id="3">3: <span id="3.1"></span></a>
+            <a class="btn" id="4">4: <span id="4.1"></span></a>
         </div>
         <div class="options" id="start_buttons">
-            <a class="btn" id="start">Start Quiz</a>
+            <a class="btn" id="start" style="display: '' ">Start Quiz</a>
+            <a class="btn" id="exit" style="display: none">Exit</a>
         </div>
         <!--! displays response answer or times up-->
         <a id="question_response" style="display: block"></a>
