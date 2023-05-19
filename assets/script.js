@@ -15,7 +15,7 @@ const p_display = document.getElementById("p");
 const header = document.querySelector("header");
 let qList = []; //list of questions made
 let qList_random = []; //once the questions are jumbled each time they are stored here. 
-var qListIterator;
+var qListIterator = 0;
 var score = 0;
 
 //? Timer variables
@@ -32,10 +32,10 @@ let answer1 = document.getElementById("1.1");
 let answer2 = document.getElementById("2.1");
 let answer3 = document.getElementById("3.1");
 let answer4 = document.getElementById("4.1");
-let button1 = document.getElementById("1");
-let button2 = document.getElementById("2");
-let button3 = document.getElementById("3");
-let button4 = document.getElementById("4");
+let button1 = document.getElementById("0");
+let button2 = document.getElementById("1");
+let button3 = document.getElementById("2");
+let button4 = document.getElementById("3");
 
 
 //? HS variables
@@ -60,7 +60,7 @@ function Question(question, answerA, answerB, answerC, answerD, correct) {
 };
 
 const q1 = new Question(
-    "What does 'this' mean?",
+    "What does 'this' mean 0?",
     "Refers to the 'document'",
     "Refers to the parent",
     "Refers to the child",
@@ -70,7 +70,7 @@ const q1 = new Question(
 qList.push(q1);
 
 const q2 = new Question(
-    "what is the my name?",
+    "what is the my name 1?",
     "frank",
     "jack",
     "will",
@@ -80,7 +80,7 @@ const q2 = new Question(
 qList.push(q2);
 
 const q3 = new Question(
-    "question 3?",
+    "question 3  3?",
     "frank",
     "jack",
     "will",
@@ -91,7 +91,7 @@ qList.push(q3);
 
 
 
-function jumbleQuestions(){
+function jumbleQuestions() {
     console.log('entry items', qList);
     while (qList.length > 0){
         const randomQ = Math.floor(Math.random() * qList.length);
@@ -150,32 +150,39 @@ function mainCard() {
     main_card.style.display = "block";
 };
 
-/* SOMETHING WRONG HERE 2 things dong the same thing
+
 function gameOn() {
+    qListIterator --;
     if (qListIterator >= 0) {
         q_display.innerText = qList[qListIterator].question;
         displayAnswers(qList[qListIterator]);
-        qListIterator --;
     } else if (qListIterator < 0) {
         scorePage();
     }
 };
 
+
 function evaluateAnswer(event){
-    var element = this.id
-    console.log(qList[qListIterator].correct)
-    if (element === qList[qListIterator].correct) {
+    var element = this.id;
+    var qlist_answer = qList[qListIterator].correct;
+    if (element == qlist_answer) {
         question_response.innerText = "CORRECT";
         score ++;
         gameOn();
     } else {
         question_response.innerText = "WRONG, Lost 5 Sec";
         start_time -= 5;
-        gameOn()
+        console.log("answer is wrong");
+        gameOn();
     }
 };
-*/
 
+
+
+/**
+ * A page for displaying your final score and
+ * to input your initials for the HS page
+ */
 function scorePage() {
     q_display.innerText = "Final Score"
     p_display.innerText = score;
@@ -186,19 +193,10 @@ function scorePage() {
 
 function resetAll() {
     score = 0;
+    localStorage.clear();
 };
 
-function introPage() {
-    mainCard();
-    hideAnswers();
-    timerReset()
-    score = 0;
-    qListIterator = qList.length - 1;
-    timer.style.display = "none";
-    question_response.innerText = "";
-    q_display.innerText = intro_txt;
-    p_display.innerText = intro_p;
-};
+
 
 
 function displayAnswers(q) {
@@ -215,6 +213,18 @@ function showAnswers() {
 
 function hideAnswers() {
     answer_block.style.display = "none";
+};
+
+function introPage() {
+    mainCard();
+    hideAnswers();
+    timerReset();
+    score = 0;
+    qListIterator = qList.length; 
+    timer.style.display = "none";
+    question_response.innerText = "";
+    q_display.innerText = intro_txt;
+    p_display.innerText = intro_p;
 };
 
 
@@ -242,8 +252,6 @@ exit_game.addEventListener("click",function(){
     switchButtons();
     introPage();
 });
-
-
 
 
 button1.addEventListener("click", evaluateAnswer);
