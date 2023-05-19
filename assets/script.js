@@ -21,7 +21,7 @@ var score = 0;
 //? Timer variables
 let timer = document.querySelector("#timer"); //the whole timer block
 let timer_time_display = document.querySelector("#timer_time"); // the time displayed
-let game_time = 100; // how long we want to play the game
+let game_time = 2; // how long we want to play the game
 let start_time; // internal counter
 let question_response = document.querySelector("#question_response"); // popup if time is out or question is right/wrong
 let timerID;
@@ -42,9 +42,20 @@ let button4 = document.getElementById("3");
 let view_high_scores = document.querySelector("#high_score_link");
 let hs_page = document.querySelector("#hs_page");
 let restart = document.querySelector("#restart");
+let initials = document.getElementById("initials");
 
-//? Question Creation Section
+
 //TODO Maybe add a feature for user input to add questions to the game.
+
+/**
+ * Creates a new Question object.
+ * @param {string} question - The question text.
+ * @param {string} answerA - Answer choice A.
+ * @param {string} answerB - Answer choice B.
+ * @param {string} answerC - Answer choice C.
+ * @param {string} answerD - Answer choice D.
+ * @param {number} correct - index of the correct answer (0 index)
+ */
 function Question(question, answerA, answerB, answerC, answerD, correct) {
     this.question = question;
     this.answer_choices = [answerA, answerB, answerC, answerD];
@@ -140,6 +151,7 @@ function switchButtons() {
 };
 
 function hsPage() {
+    initials.style.display = "none";
     main_card.style.display = "none";
     hs_page.style.display = "block";
     timer.style.display = "none";
@@ -161,7 +173,7 @@ function gameOn() {
     }
 };
 
-
+/** Evaluates answers when button is pressed */
 function evaluateAnswer(event){
     var element = this.id;
     var qlist_answer = qList[qListIterator].correct;
@@ -184,7 +196,8 @@ function evaluateAnswer(event){
  * to input your initials for the HS page
  */
 function scorePage() {
-    q_display.innerText = "Final Score"
+    initials.style.display = "block";
+    q_display.innerText = "Final Score";
     p_display.innerText = score;
     question_response.innerText = '';
     hideAnswers();
@@ -198,7 +211,9 @@ function resetAll() {
 
 
 
-
+/** Displays answers
+ * @param {index} q - list location for question qList[qListIterator]
+ */
 function displayAnswers(q) {
     showAnswers()
     answer1.innerText = q.answer_choices[0];
@@ -222,6 +237,7 @@ function introPage() {
     score = 0;
     qListIterator = qList.length; 
     timer.style.display = "none";
+    initials.style.display = "none";
     question_response.innerText = "";
     q_display.innerText = intro_txt;
     p_display.innerText = intro_p;

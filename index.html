@@ -23,6 +23,10 @@
     <section id="main_card" style="display: block">
         <h1 id="question"></h1>
         <p id="p"></p>
+        <div id="initials" style="display: none;">
+            <input type="name" placeholder="initials"/>
+            <button class="btn" id="submit_initials">Submit</button>
+        </div>
         <ul id="answers" style="display: none">
             <li class="btn" id="0">1: <span id="1.1"></span></li>
             <li class="btn" id="1">2: <span id="2.1"></span></li>
@@ -37,13 +41,13 @@
         <a id="question_response" style="display: block"></a>
     </section>
     <!--! creates a high score page and hides the rest-->
+   
     <section id="hs_page" style="display: none;">
         <h1 id="hs_title">High Scores</h1>
         <h3 id="final_score"></h3>
         <ol id="hs_list">
         </ol>
-        <input type="name" placeholder="initials"/>
-        <button class="btn" id="submit_initials">Submit</button>
+
         <div class="options" id="hs_selectors">
             <a class="btn" id="restart">Try Again</a>
             <a class="btn reset">Reset Scores</a>
