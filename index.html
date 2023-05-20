@@ -24,7 +24,7 @@
         <h1 id="question"></h1>
         <p id="p"></p>
         <div id="initials" style="display: none;">
-            <input type="name" placeholder="initials"/>
+            <input id="actual_initials" type="name" placeholder="initials"/>
             <button class="btn" id="submit_initials">Submit</button>
         </div>
         <ul id="answers" style="display: none">
@@ -45,9 +45,8 @@
     <section id="hs_page" style="display: none;">
         <h1 id="hs_title">High Scores</h1>
         <h3 id="final_score"></h3>
-        <ol id="hs_list">
-        </ol>
-
+        <ul id="hs_list">
+        </ul>
         <div class="options" id="hs_selectors">
             <a class="btn" id="restart">Try Again</a>
             <a class="btn reset">Reset Scores</a>

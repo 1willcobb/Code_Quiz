@@ -43,6 +43,10 @@ let view_high_scores = document.querySelector("#high_score_link");
 let hs_page = document.querySelector("#hs_page");
 let restart = document.querySelector("#restart");
 let initials = document.getElementById("initials");
+let hs_element = document.getElementById("hs_list");
+let submit_initials = document.getElementById("submit_initials");
+let high_scores= [];
+let actual_initials = document.getElementById("actual_initials");
 
 
 //TODO Maybe add a feature for user input to add questions to the game.
@@ -151,6 +155,15 @@ function switchButtons() {
 };
 
 function hsPage() {
+    getHSlist()
+    if (high_scores.length === 0){
+        p_display.innerText = "No High Scores";
+    }
+    for (let i in high_scores){
+        let li = document.createElement("li");
+        li.textContent = high_scores[i]["user_initials"] + " : " + high_scores[i]["score"];
+        hs_element.appendChild(li);
+    }
     initials.style.display = "none";
     main_card.style.display = "none";
     hs_page.style.display = "block";
@@ -193,9 +206,10 @@ function evaluateAnswer(event){
 
 /**
  * A page for displaying your final score and
- * to input your initials for the HS page
+ * to input your initials for the HS pagedd
  */
 function scorePage() {
+    getHSlist();
     initials.style.display = "block";
     q_display.innerText = "Final Score";
     p_display.innerText = score;
@@ -203,6 +217,23 @@ function scorePage() {
     hideAnswers();
 }
 
+function getHSlist(){
+    var high_scores_history = (JSON.parse(localStorage.getItem("HS")));
+    if (high_scores_history !== null) {
+        high_scores = high_scores_history;
+      } else {
+        return;
+      }
+    return high_scores;
+}
+
+
+submit_initials.addEventListener("click", function(){
+    user_initials = actual_initials.value;
+    high_scores.push({user_initials: user_initials, score: score});
+    localStorage.setItem("HS", JSON.stringify(high_scores));
+    hsPage();
+});
 
 function resetAll() {
     score = 0;
