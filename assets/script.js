@@ -1,5 +1,4 @@
-//TODO Timed quiz on JS fundamentals that stores high scores.
-//TODO when all questions are answered OR the timer reaches 0 the game is over
+
 
 //? intro variables
 const intro_txt = "Welcome to the JavaScript Code Quiz!";
@@ -21,7 +20,7 @@ var score = 0;
 //? Timer variables
 let timer = document.querySelector("#timer"); //the whole timer block
 let timer_time_display = document.querySelector("#timer_time"); // the time displayed
-let game_time = 2; // how long we want to play the game
+let game_time = 50; // how long we want to play the game
 let start_time; // internal counter
 let question_response = document.querySelector("#question_response"); // popup if time is out or question is right/wrong
 let timerID;
@@ -141,6 +140,7 @@ function timerReset() {
 };
 
 function restartGame(){
+    switchButtons()
     introPage();
 };
 
@@ -154,21 +154,6 @@ function switchButtons() {
     };
 };
 
-function hsPage() {
-    getHSlist()
-    if (high_scores.length === 0){
-        p_display.innerText = "No High Scores";
-    }
-    for (let i in high_scores){
-        let li = document.createElement("li");
-        li.textContent = high_scores[i]["user_initials"] + " : " + high_scores[i]["score"];
-        hs_element.appendChild(li);
-    }
-    initials.style.display = "none";
-    main_card.style.display = "none";
-    hs_page.style.display = "block";
-    timer.style.display = "none";
-};
 
 function mainCard() {
     hs_page.style.display = "none";
@@ -202,30 +187,46 @@ function evaluateAnswer(event){
     }
 };
 
-
-
+function hsPage() {
+    refresHSpage()
+    if (high_scores.length === 0){
+        p_display.innerText = "No High Scores";
+    }
+    for (let i in high_scores){
+        let li = document.createElement("li");
+        li.textContent = high_scores[i]["user_initials"] + " : " + high_scores[i]["score"];
+        hs_element.appendChild(li);
+    }
+    initials.style.display = "none";
+    main_card.style.display = "none";
+    hs_page.style.display = "block";
+    timer.style.display = "none";
+};
 /**
  * A page for displaying your final score and
  * to input your initials for the HS pagedd
  */
 function scorePage() {
-    getHSlist();
     initials.style.display = "block";
     q_display.innerText = "Final Score";
     p_display.innerText = score;
     question_response.innerText = '';
     hideAnswers();
-}
+};
 
 function getHSlist(){
     var high_scores_history = (JSON.parse(localStorage.getItem("HS")));
-    if (high_scores_history !== null) {
+    if (high_scores_history != null) {
         high_scores = high_scores_history;
-      } else {
+    } else {
         return;
-      }
-    return high_scores;
-}
+    };
+};
+
+function refresHSpage(){
+    while (hs_element.hasChildNodes())
+        hs_element.removeChild(hs_element.firstChild);
+};
 
 
 submit_initials.addEventListener("click", function(){
@@ -237,7 +238,9 @@ submit_initials.addEventListener("click", function(){
 
 function resetAll() {
     score = 0;
+    high_scores = [];
     localStorage.clear();
+    restartGame()
 };
 
 
@@ -261,10 +264,16 @@ function hideAnswers() {
     answer_block.style.display = "none";
 };
 
+function __init__(){
+    getHSlist();
+    introPage();
+}
+
 function introPage() {
     mainCard();
     hideAnswers();
     timerReset();
+    refresHSpage();
     score = 0;
     qListIterator = qList.length; 
     timer.style.display = "none";
@@ -272,6 +281,8 @@ function introPage() {
     question_response.innerText = "";
     q_display.innerText = intro_txt;
     p_display.innerText = intro_p;
+    start_game.style.display = "";
+    exit_game.style.display = "none";
 };
 
 
@@ -284,7 +295,8 @@ view_high_scores.addEventListener("click", function() {
     };
 });
 
-restart.addEventListener("click", introPage);
+restart.addEventListener("click", restartGame);
+
 
 start_game.addEventListener("click", function(){
     jumbleQuestions();
@@ -311,8 +323,5 @@ button4.addEventListener("click", evaluateAnswer);
 
 
 
-//TODO when the game is over then i can store my initials in a high score page
 
-
-
-introPage();
+__init__();
