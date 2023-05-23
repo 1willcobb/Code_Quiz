@@ -269,6 +269,7 @@ function __init__(){
     introPage();
 }
 
+
 function introPage() {
     mainCard();
     hideAnswers();
