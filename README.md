@@ -35,11 +35,8 @@ Really enjoyed how complex this was and it was cool to see how to organize an ac
 
 ## Demo Images
 
-![demo-full-site](./demo_photos/Screenshot%202023-05-09%20at%202.27.20%20PM.png)
-
-![demo-prompts](./demo_photos/Screenshot%202023-05-09%20at%202.27.48%20PM.png)
-
-![demo-checked-boxes](./demo_photos/Screenshot%202023-05-09%20at%202.28.11%20PM.png)
+![demo-full-site]()
+![high-score-page]()
 
 
 ## GitHub Repository
