@@ -3,47 +3,35 @@ A quiz for coding in JS
 
 ## Challange
 
-I was challanged to make a code quiz 
-
-my tasks were as follows:
-
-* WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-
-* WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-
-* WHEN prompted for the length of the password
-THEN I choose a length of at least 8 
-characters and no more than 128 characters
-
-* WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-
-* WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-
-* WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-
-* WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
+I was challenged to make a code quiz that is a series of questions that must be completed in an alloted time. It was to capture High Scores entered and have a HS page.
 
 ## How it works
 
-There are 2 Password Generators on this page that do the same function. 
+There are 10 questions and 30 seconds on the clock. 
 
-The first utalizes prompt(), confirm() and allert() browser prompts to input the correct information needed to generate a password.
+Each time the game starts the questions are jumbled and random ordered. 
 
-The second utalizes check boxes and a number drop down to do the same.
+Every answer wrong displays right or wrong. if wrong, 5 seconds are deducted from the time. if right, 1 point is added to the score. 
+
+Once time is out, or all 10 questions are answered the game is over and the user is prompted to provide their initials. 
+
+initials are tracked in localStorage for that computer and pulled after the initials are entered or after the "view high scores" button is pressed. 
+
+A reset button was added to clear all high scores.
 
 ## Features
 
-I tried to go above and beyond the assignment by doing a second password generator. This generator still meets the standard asked by the class, but with further research into how check boxes work and generating the password without using prompts.
+I tried to go above and beyond the assignment by making classes for adding new questions easier. 
+
+## Future Features
+
+I really wanted to add in a way to append new questions from user input with a button at the top or something. I could do this but I am moving on to the next project and may come back at some time. 
+
+I also styled this simply to be closer to the mockup. I would have liked to style it further. 
 
 ## What I Learned
 
-Really enjoyed applying JS to the main pages and it was cool making a full fledged web-app.
+Really enjoyed how complex this was and it was cool to see how to organize an actual large scale project like this. I wish I organized the JS a little better but it works!
 
 ## Demo Images
 
@@ -56,8 +44,8 @@ Really enjoyed applying JS to the main pages and it was cool making a full fledg
 
 ## GitHub Repository
 
-[repo](https://github.com/1willcobb/Password_Generator)
+[repo](https://github.com/1willcobb/Code_Quiz)
 
 ## Live Site
 
-[Password Generator](https://1willcobb.github.io/Password_Generator/)
+[Password Generator](https://1willcobb.github.io/Code_Quiz/)
