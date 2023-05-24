@@ -157,7 +157,7 @@ function switchButtons() {
 
 function mainCard() {
     hs_page.style.display = "none";
-    main_card.style.display = "block";
+    main_card.style.display = "flex";
 };
 
 
@@ -204,7 +204,7 @@ function hsPage() {
     }
     initials.style.display = "none";
     main_card.style.display = "none";
-    hs_page.style.display = "block";
+    hs_page.style.display = "flex";
     timer.style.display = "none";
 };
 /**
@@ -302,7 +302,7 @@ function introPage() {
 //? Listener Section
 view_high_scores.addEventListener("click", function() {
     console.log("view HS pressed");
-    if (main_card.style.display == "block") {
+    if (main_card.style.display == "flex") {
         hsPage();
         hideAnswers();
     };
