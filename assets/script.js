@@ -189,12 +189,17 @@ function evaluateAnswer(event){
 
 function hsPage() {
     refresHSpage()
-    if (high_scores.length === 0){
+
+    const numberOfScoresToShow = 5;
+    const topHighScores = high_scores.slice(0, numberOfScoresToShow);
+
+    if (topHighScores.length === 0){
         p_display.innerText = "No High Scores";
     }
-    for (let i in high_scores){
+    for (let i in topHighScores){
         let li = document.createElement("li");
-        li.textContent = high_scores[i]["user_initials"] + " : " + high_scores[i]["score"];
+        li.style.listStyleType = "decimal";
+        li.textContent = topHighScores[i]["user_initials"] + " : " + topHighScores[i]["score"];
         hs_element.appendChild(li);
     }
     initials.style.display = "none";
@@ -218,9 +223,13 @@ function getHSlist(){
     var high_scores_history = (JSON.parse(localStorage.getItem("HS")));
     if (high_scores_history != null) {
         high_scores = high_scores_history;
+        high_scores.sort(function(a, b) {
+            return b.score - a.score; // Sort in descending order based on the score
+        });
     } else {
         return;
     };
+
 };
 
 function refresHSpage(){
@@ -232,6 +241,9 @@ function refresHSpage(){
 submit_initials.addEventListener("click", function(){
     user_initials = actual_initials.value;
     high_scores.push({user_initials: user_initials, score: score});
+    high_scores.sort(function(a, b) {
+        return b.score - a.score; // Sort in descending order based on the score
+    });
     localStorage.setItem("HS", JSON.stringify(high_scores));
     hsPage();
 });
