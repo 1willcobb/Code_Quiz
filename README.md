@@ -35,8 +35,9 @@ Really enjoyed how complex this was and it was cool to see how to organize an ac
 
 ## Demo Images
 
-![demo-full-site]()
-![high-score-page]()
+![demo-intro-page](./assets/intro.png)
+![question-page](./assets/questions.png)
+![high-score-page](./assets/HS.png)
 
 
 ## GitHub Repository

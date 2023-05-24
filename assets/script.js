@@ -75,7 +75,7 @@ const q1 = new Question(
   qList.push(q1);
   
   const q2 = new Question(
-    "Which keyword is used to declare a variable in JavaScript?",
+    "Which keyword is not used to declare a variable in JavaScript?",
     "var",
     "let",
     "int",
