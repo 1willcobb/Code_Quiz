@@ -20,7 +20,7 @@ var score = 0;
 //? Timer variables
 let timer = document.querySelector("#timer"); //the whole timer block
 let timer_time_display = document.querySelector("#timer_time"); // the time displayed
-let game_time = 50; // how long we want to play the game
+let game_time = 30; // how long we want to play the game
 let start_time; // internal counter
 let question_response = document.querySelector("#question_response"); // popup if time is out or question is right/wrong
 let timerID;
@@ -63,45 +63,106 @@ function Question(question, answerA, answerB, answerC, answerD, correct) {
     this.question = question;
     this.answer_choices = [answerA, answerB, answerC, answerD];
     this.correct = correct;
-    this.ask = function() {
-        console.log(this.question);
-        var start = 1;
-        for (var i in this.answer_choices){
-            console.log(start + ": " + this.answer_choices[i]);
-            start ++;
-        };
-    };
 };
-
 const q1 = new Question(
-    "What does 'this' mean 0?",
-    "Refers to the 'document'",
-    "Refers to the parent",
-    "Refers to the child",
-    "Refers to a function called 'this'",
-    0
-);
-qList.push(q1);
-
-const q2 = new Question(
-    "what is the my name 1?",
-    "frank",
-    "jack",
-    "will",
-    "Julian",
+    "Which function is used to display a message in a dialog box?",
+    "prompt()",
+    "log()",
+    "alert()",
+    "confirm()",
+    2
+  );
+  qList.push(q1);
+  
+  const q2 = new Question(
+    "Which keyword is used to declare a variable in JavaScript?",
+    "var",
+    "let",
+    "int",
+    "const",
     1
-);
-qList.push(q2);
-
-const q3 = new Question(
-    "question 3  3?",
-    "frank",
-    "jack",
-    "will",
-    "Julian",
+  );
+  qList.push(q2);
+  
+  const q3 = new Question(
+    "Which symbol is used to assign a value to a variable in JavaScript?",
+    "=",
+    "===",
+    "==",
+    "=>",
+    0
+  );
+  qList.push(q3);
+  
+  const q4 = new Question(
+    "Which method is used to add an element to the end of an array in JavaScript?",
+    "pop()",
+    "unshift()",
+    "push()",
+    "shift()",
+    2
+  );
+  qList.push(q4);
+  
+  const q5 = new Question(
+    "What is the correct syntax for a single-line comment in JavaScript?",
+    "/* This is a comment */",
+    "# This is a comment",
+    "<!-- This is a comment -->",
+    "// This is a comment",
     3
-);
-qList.push(q3);
+  );
+  qList.push(q5);
+  
+  const q6 = new Question(
+    "Which operator is used to concatenate two strings in JavaScript?",
+    "+",
+    "/",
+    "-",
+    "*",
+    0
+  );
+  qList.push(q6);
+  
+  const q7 = new Question(
+    "Which method is used to convert a string to an integer in JavaScript?",
+    "parseFloat()",
+    "Math.random()",
+    "toString()",
+    "parseInt()",
+    3
+  );
+  qList.push(q7);
+  
+  const q8 = new Question(
+    "What does the 'NaN' value represent in JavaScript?",
+    "Negative",
+    "Null and None",
+    "Not Available Now",
+    "Not a Number",
+    3
+  );
+  qList.push(q8);
+  
+  const q9 = new Question(
+    "Which statement is used to exit a loop in JavaScript?",
+    "continue",
+    "break",
+    "return",
+    "exit",
+    1
+  );
+  qList.push(q9);
+  
+  const q10 = new Question(
+    "Which method is used to select an HTML element by its ID in JavaScript?",
+    "querySelector()",
+    "getElementById()",
+    "getElementsByClassName()",
+    "getElementsByTagName()",
+    1
+  );
+  qList.push(q10);
 
 
 
@@ -188,6 +249,7 @@ function evaluateAnswer(event){
 };
 
 function hsPage() {
+    p_display.innerText = "";
     refresHSpage()
 
     const numberOfScoresToShow = 5;
@@ -312,6 +374,7 @@ restart.addEventListener("click", restartGame);
 
 
 start_game.addEventListener("click", function(){
+    p_display.innerText = "";
     jumbleQuestions();
     switchButtons();
     timerStart();
