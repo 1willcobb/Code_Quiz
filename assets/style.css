@@ -19,6 +19,9 @@ body {
 header {
     width: 100%;
 }
+
+
+
 .header_wrapper {
     display: flex;
     align-items: center;
@@ -62,6 +65,7 @@ header {
 .btn {
     display: inline-block;
     padding: 3px 10px;
+    font-size: 20px;
     box-sizing: content-box;
     border: 1px solid darkslategrey;
     border-radius: 5px;
@@ -70,4 +74,8 @@ header {
 
 .btn:hover {
     background-color: rgb(255, 173, 72);
+}
+
+#hs_list li {
+    font-size: 25px;
 }

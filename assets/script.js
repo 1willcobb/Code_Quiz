@@ -80,7 +80,7 @@ const q1 = new Question(
     "let",
     "int",
     "const",
-    1
+    2
   );
   qList.push(q2);
   
